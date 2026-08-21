@@ -1,0 +1,165 @@
+/* Estilo do frontend baseado na personaliza????o da pasta /public
+   (inclui card, bot??o e logo), adaptado para as p??ginas do frontend.
+*/
+
+:root{
+  --bg: rgb(173, 216, 230);
+  --green: #4aa3ff;
+  --mint: #1e90ff;
+  --mint2:#0b5bd3;
+  --input-border: rgb(173, 173, 173);
+  --input-focus: rgb(98, 168, 255);
+}
+
+/* Badges (usadas nas telas triagem/medico) */
+.badge{ padding: 6px 10px; border-radius: 10px; color:#fff; display:inline-block; font-weight:700; }
+.badge.normal{ background: rgba(29, 155, 240, .95); }
+.badge.febre{ background: rgba(245, 158, 11, .95); }
+.badge.alta{ background: rgba(239, 68, 68, .95); }
+.badge.hipotermia{ background: rgba(29, 155, 240, .95); }
+.badge.hipertermia{ background: rgba(239, 68, 68, .95); }
+.badge.critica{ background: rgba(239, 68, 68, .95); }
+.badge.febricula{ background: rgba(245, 158, 11, .95); }
+
+
+
+*{ box-sizing:border-box; }
+
+body{
+  margin:0;
+  font-family: 'Franklin Gothic Medium','Arial Narrow',Arial,sans-serif;
+  background-color: var(--bg);
+  color:#0b1220;
+  min-height:100vh;
+}
+
+/* centraliza somente a tela de login */
+.form_main{
+  margin: 32px auto;
+}
+
+
+img{ width:150px; }
+
+/* ====== Login/telas de formul??rio ====== */
+.form_main {
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(255, 255, 255);
+  padding: 30px 30px 30px 30px;
+  border-radius: 30px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.06);
+  position: relative;
+  left: 0;
+  top: 0;
+}
+
+.heading {
+  font-size: 2.5em;
+  color: var(--green);
+  font-weight: 600;
+  margin: 15px 0 30px 0;
+  font-family: 'Franklin Gothic Medium','Arial Narrow',Arial,sans-serif;
+}
+
+.inputContainer {
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.inputIcon {
+  position: absolute;
+  left: 10px;
+}
+
+.inputField {
+  width: 100%;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid var(--input-border);
+  border-radius: 30px;
+  margin: 10px 0;
+  color: black;
+  font-size: .8em;
+  font-weight: 500;
+  box-sizing: border-box;
+  padding-left: 30px;
+}
+
+.inputField:focus {
+  outline: none;
+  border-bottom: 2px solid var(--input-focus);
+}
+
+.inputField::placeholder {
+  color: rgb(80, 80, 80);
+  font-size: 1em;
+  font-weight: 500;
+}
+
+#button {
+  position: relative;
+  width: 100%;
+  border: 2px solid var(--mint2);
+  background-color: var(--mint);
+  height: 40px;
+  color: white;
+  font-size: .8em;
+  font-weight: 500;
+  letter-spacing: 1px;
+  border-radius: 30px;
+  margin: 10px 0;
+  cursor: pointer;
+  overflow: hidden;
+  font-family: 'Franklin Gothic Medium','Arial Narrow',Arial,sans-serif;
+}
+
+#button::after {
+  content: "";
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.253);
+  height: 100%;
+  width: 150px;
+  top: 0;
+  left: -200px;
+  border-bottom-right-radius: 100px;
+  border-top-left-radius: 100px;
+  filter: blur(10px);
+  transition-duration: .5s;
+}
+
+#button:hover::after {
+  transform: translateX(600px);
+  transition-duration: .5s;
+}
+
+/* ====== Conte??do geral nas outras telas do frontend ====== */
+.container{
+  width: 100%;
+  padding: 24px;
+}
+
+/* Mant??m visual ???card??? simples para p??ginas adicionais */
+.card{
+  background: rgba(255,255,255,.75);
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: 0px 0px 10px rgba(0,0,0,.06);
+}
+
+h2,h3{ margin: 10px 0; }
+
+input, select, textarea{
+  font-family: inherit;
+}
+
+button{ font-family: inherit; }
+
+

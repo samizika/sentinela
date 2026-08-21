@@ -1,0 +1,107 @@
+{
+  "usuarios": [
+    {
+      "usuario": "triagem",
+      "senha": 123,
+      "tipo": "triagem"
+    },
+    {
+      "usuario": "medico",
+      "senha": 123,
+      "tipo": "medico"
+    },
+    {
+      "usuario": "atendimento",
+      "senha": 123,
+      "tipo": "atendimento"
+    }
+  ],
+  "pacientes": [
+    {
+      "id": 1782508849641,
+      "nome": "samira",
+      "cpf": "02209098023",
+      "tipo": "Convenio",
+      "status": "em_consulta",
+      "createdAt": "2026-06-26T21:20:49.641Z",
+      "updatedAt": "2026-06-26T21:21:14.322Z"
+    },
+    {
+      "id": 1782508906006,
+      "nome": "asd",
+      "cpf": "asd",
+      "tipo": "Convenio",
+      "status": "aguardando_medico",
+      "createdAt": "2026-06-26T21:21:46.006Z",
+      "updatedAt": "2026-06-26T21:21:51.899Z"
+    },
+    {
+      "id": 1782509543340,
+      "nome": "luiz",
+      "cpf": "21312313",
+      "tipo": "Convenio",
+      "status": "aguardando_medico",
+      "createdAt": "2026-06-26T21:32:23.340Z",
+      "updatedAt": "2026-06-26T21:32:42.442Z"
+    },
+    {
+      "id": 1782510755059,
+      "nome": "samira",
+      "cpf": "12345678",
+      "tipo": "Convenio",
+      "status": "em_consulta",
+      "createdAt": "2026-06-26T21:52:35.059Z",
+      "updatedAt": "2026-06-26T21:53:11.883Z"
+    },
+    {
+      "id": 1787234374455,
+      "nome": "samira",
+      "cpf": "123456789",
+      "tipo": "Particular",
+      "status": "triagem",
+      "createdAt": "2026-08-20T13:59:34.455Z",
+      "updatedAt": "2026-08-20T13:59:34.455Z"
+    }
+  ],
+  "leitos": [],
+  "agendamentos": [],
+  "prescricoes": [],
+  "internacoes": [],
+  "triagens": [],
+  "consultas": [
+    {
+      "id": 1782508874322,
+      "pacienteId": 1782508849641,
+      "pacienteCpf": "02209098023",
+      "pacienteNome": "samira",
+      "diagnostico": "sadasd",
+      "medicacao": "asd",
+      "obs": "asd",
+      "createdAt": "2026-06-26T21:21:14.322Z",
+      "status": "finalizado"
+    },
+    {
+      "id": 1782510791883,
+      "pacienteId": 1782510755059,
+      "pacienteCpf": "12345678",
+      "pacienteNome": "samira",
+      "diagnostico": "asda",
+      "medicacao": "dsdadsa",
+      "obs": "sadsa",
+      "createdAt": "2026-06-26T21:53:11.883Z",
+      "status": "finalizado"
+    }
+  ],
+  "atendimentos": [
+    {
+      "id": 1787234374455,
+      "pacienteId": 1787234374455,
+      "pacienteCpf": "123456789",
+      "pacienteNome": "samira",
+      "tipo": "Particular",
+      "imagem": null,
+      "createdAt": "2026-08-20T13:59:34.455Z"
+    }
+  ],
+  "auditoria": []
+}
