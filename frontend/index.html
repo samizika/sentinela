@@ -1,5 +1,6 @@
+```html
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <link rel="stylesheet" href="styles.css">
@@ -12,73 +13,90 @@
 
     <form class="form_main" onsubmit="login(); return false;">
         <img src="seungmin.png" alt="Logo Hospital Grande Pirarucu">
+
         <p class="heading">Sistema Hospitalar</p>
 
         <div class="inputContainer">
-            <input placeholder="Nome de usuário" id="usuario" class="inputField" type="text">
+            <input
+                placeholder="Nome de usuário"
+                id="usuario"
+                class="inputField"
+                type="text"
+            >
         </div>
 
         <div class="inputContainer">
-            <input placeholder="Senha" id="senha" class="inputField" type="password">
+            <input
+                placeholder="Senha"
+                id="senha"
+                class="inputField"
+                type="password"
+            >
         </div>
 
         <button type="submit" id="button">Entrar</button>
 
-        <p id="erro" style="display:none; color:red; text-align:center; margin:8px 0 0;"></p>
+        <p
+            id="erro"
+            style="display:none; color:red; text-align:center; margin:8px 0 0;"
+        ></p>
     </form>
 
-    <script>  
+    <script>
         function login() {
-            const usuarioEl = document.getElementById('usuario');
-            const senhaEl = document.getElementById('senha');
-            const erroEl = document.getElementById('erro');
+            const usuarioEl = document.getElementById("usuario");
+            const senhaEl = document.getElementById("senha");
+            const erroEl = document.getElementById("erro");
 
             const payload = {
-                usuario: usuarioEl?.value,
-                senha: senhaEl?.value
+                usuario: usuarioEl.value,
+                senha: senhaEl.value
             };
 
             if (!payload.usuario || payload.senha === "") {
-                if (erroEl) {
-                    erroEl.style.display = 'block';
-                    erroEl.textContent = 'Preencha usuário e senha';
-                } else {
-                    alert('Preencha usuário e senha');
-                }
+                erroEl.style.display = "block";
+                erroEl.textContent = "Preencha usuário e senha";
                 return;
             }
 
             fetch("/login", {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
+                headers: {
+                    "Content-Type": "application/json"
+                },
                 body: JSON.stringify(payload)
-                usuario: usuario.value,
-                senha: senha.value
             })
-                .then(async r => {
-                    if (!r.ok) {
-                        const txt = await r.text().catch(() => '');
-                        throw new Error(`HTTP ${r.status} ${txt}`.trim());
+                .then(async response => {
+                    if (!response.ok) {
+                        const txt = await response.text().catch(() => "");
+                        throw new Error(
+                            `HTTP ${response.status} ${txt}`.trim()
+                        );
                     }
-                    return r.json();
+
+                    return response.json();
                 })
                 .then(data => {
-                    if (data.tipo === "triagem") location.href = "triagem.html";
-                    if (data.tipo === "medico") location.href = "medico.html";
-                    if (data.tipo === "atendimento") location.href = "atendimento.html";
+                    if (data.tipo === "triagem") {
+                        location.href = "triagem.html";
+                    } else if (data.tipo === "medico") {
+                        location.href = "medico.html";
+                    } else if (data.tipo === "atendimento") {
+                        location.href = "atendimento.html";
+                    } else {
+                        throw new Error("Tipo de usuário desconhecido");
+                    }
                 })
                 .catch(err => {
                     console.error(err);
-                    if (erroEl) {
-                        erroEl.style.display = 'block';
-                        erroEl.textContent = 'Usuário ou senha incorretos';
-                    } else {
-                        alert("Falha no login: " + err.message);
-                    }
+
+                    erroEl.style.display = "block";
+                    erroEl.textContent = "Usuário ou senha incorretos";
                 });
         }
     </script>
+
 </body>
 
 </html>
-
+```
