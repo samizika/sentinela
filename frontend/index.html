@@ -48,10 +48,12 @@
                 return;
             }
 
-            fetch("http://localhost:3000/login", {
+            fetch("/login", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(payload)
+                usuario: usuario.value,
+                senha: senha.value
             })
                 .then(async r => {
                     if (!r.ok) {
@@ -61,9 +63,9 @@
                     return r.json();
                 })
                 .then(data => {
-                    if (data?.tipo === "triagem") location.href = "triagem.html";
-                    if (data?.tipo === "medico") location.href = "medico.html";
-                    if (data?.tipo === "atendimento") location.href = "atendimento.html";
+                    if (data.tipo === "triagem") location.href = "triagem.html";
+                    if (data.tipo === "medico") location.href = "medico.html";
+                    if (data.tipo === "atendimento") location.href = "atendimento.html";
                 })
                 .catch(err => {
                     console.error(err);
